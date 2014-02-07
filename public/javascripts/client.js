@@ -5,8 +5,18 @@ $(document).ready(function () {
     $('#message-list').append('<li class="list-group-item">' + message + '</li>');
   });
 
-  $('#message-send-button').click(function () {
+  function sendMessage() {
     socket.emit('messagesent', $('#message-field').val());
     $('#message-field').val('');
+  }
+
+  $('#message-send-button').click(sendMessage);
+
+  $('#message-field').on('keypress', function (event) {
+    var returnKey = 13;
+
+    if (event.which === returnKey) {
+      sendMessage();
+    }
   });
 });
