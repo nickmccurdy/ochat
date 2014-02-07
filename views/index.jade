@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .page-header: h1 ochat
+
+  ul.list-group
+    li.list-group-item Cras justo odio
+    li.list-group-item Dapibus ac facilisis in
+    li.list-group-item Morbi leo risus
+    li.list-group-item Porta ac consectetur ac
+    li.list-group-item Vestibulum at eros
+
+  .input-group
+    input.form-control(type='text', autofocus)
+    span.input-group-btn
+      button.btn.btn-primary(type='button') Send
