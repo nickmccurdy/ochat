@@ -8,7 +8,6 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
-var io = require('socket.io');
 
 var app = express();
 
@@ -34,10 +33,10 @@ app.get('/users', user.list);
 
 var server = http.createServer(app);
 
-var chatServer = io.listen(server);
-chatServer.sockets.on('connection', function (socket) {
+var io = require('socket.io').listen(server);
+io.sockets.on('connection', function (socket) {
   socket.on('messagesent', function (message) {
-    chatServer.sockets.emit('messagerecieved', message);
+    io.sockets.emit('messagerecieved', message);
   });
 });
 
