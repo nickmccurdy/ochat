@@ -9,4 +9,7 @@ block content
       button#message-send-button.btn.btn-primary(type='button') Send
 
   script#message-template(type="text/template").
-    <li class="list-group-item"><%= message %></li>
+    <li class="list-group-item">
+      <b><%= name || 'Guest' %>:</b>
+      <%= message %>
+    </li>

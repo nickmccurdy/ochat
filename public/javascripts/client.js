@@ -2,12 +2,15 @@ $(document).ready(function () {
   var socket = io.connect('http://localhost:3000');
   var messageTemplate = _.template($('#message-template').html());
 
-  socket.on('message recieved', function (message) {
-    $('#message-list').append(messageTemplate({ message: message }));
+  socket.on('message recieved', function (data) {
+    $('#message-list').append(messageTemplate(data));
   });
 
   function sendMessage() {
-    socket.emit('message sent', $('#message-field').val());
+    socket.emit('message sent', {
+      name: $('#name-field').val(),
+      message: $('#message-field').val()
+    });
     $('#message-field').val('');
   }
 
