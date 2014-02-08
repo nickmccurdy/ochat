@@ -1,12 +1,12 @@
 $(document).ready(function () {
   var socket = io.connect('http://localhost:3000');
 
-  socket.on('messagerecieved', function (message) {
+  socket.on('message recieved', function (message) {
     $('#message-list').append('<li class="list-group-item">' + message + '</li>');
   });
 
   function sendMessage() {
-    socket.emit('messagesent', $('#message-field').val());
+    socket.emit('message sent', $('#message-field').val());
     $('#message-field').val('');
   }
 

@@ -35,8 +35,8 @@ var server = http.createServer(app);
 
 var io = require('socket.io').listen(server);
 io.sockets.on('connection', function (socket) {
-  socket.on('messagesent', function (message) {
-    io.sockets.emit('messagerecieved', message);
+  socket.on('message sent', function (message) {
+    io.sockets.emit('message recieved', message);
   });
 });
 
