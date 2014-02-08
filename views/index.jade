@@ -10,6 +10,15 @@ block content
 
   script#message-template(type="text/template").
     <li class="list-group-item">
-      <b><%= name || 'Guest' %>:</b>
-      <%= message %>
+      <div class="media">
+        <div class="pull-left">
+          <img class="media-object" src="http://placekitten.com/80/80" alt="avatar">
+        </div>
+
+        <div class="media-body">
+          <h4 class="media-heading"><%= name || 'Guest' %></h4>
+
+          <%= message %>
+        </div>
+      </div>
     </li>
