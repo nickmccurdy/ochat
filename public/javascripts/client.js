@@ -1,8 +1,9 @@
 $(document).ready(function () {
   var socket = io.connect('http://localhost:3000');
+  var messageTemplate = _.template($('#message-template').html());
 
   socket.on('message recieved', function (message) {
-    $('#message-list').append('<li class="list-group-item">' + message + '</li>');
+    $('#message-list').append(messageTemplate({ message: message }));
   });
 
   function sendMessage() {

@@ -9,3 +9,6 @@ block content
     input#message-field.form-control(type='text', autofocus)
     span.input-group-btn
       button#message-send-button.btn.btn-primary(type='button') Send
+
+  script#message-template(type="text/template").
+    <li class="list-group-item"><%= message %></li>
