@@ -5,7 +5,12 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css')
   body
-    .container: block content
+    .container
+      nav.navbar.navbar-default(role='navigation')
+        .navbar-brand ochat
+
+      block content
+
     script(src='http://code.jquery.com/jquery-2.1.0.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js')
     script(src='/socket.io/socket.io.js')
