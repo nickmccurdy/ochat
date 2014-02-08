@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  ul.list-group#message-list
+  ul#message-list.list-group
 
   .input-group
     input#message-field.form-control(type='text', autofocus)
@@ -18,7 +18,7 @@ block content
         <div class="media-body">
           <h4 class="media-heading"><%= name || 'Guest' %></h4>
 
-          <%= message %>
+          <%= _.escape(message) %>
         </div>
       </div>
     </li>
