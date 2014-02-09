@@ -2,22 +2,28 @@ $(document).ready(function () {
   var socket = io.connect();
   var messageTemplate = _.template($('#message-template').html());
 
+  // Elements
+  var $messageList = $('#message-list');
+  var $nameField = $('#name-field');
+  var $messageField = $('#message-field');
+  var $messageSendButton = $('#message-send-button');
+
   socket.on('message recieved', function (data) {
-    $('#message-list').append(messageTemplate(data));
-    $('#message-list').scrollTop($('#message-list').height());
+    $messageList.append(messageTemplate(data));
+    $messageList.scrollTop($messageList.height());
   });
 
   function sendMessage() {
     socket.emit('message sent', {
-      name: $('#name-field').val(),
-      message: $('#message-field').val()
+      name: $nameField.val(),
+      message: $messageField.val()
     });
-    $('#message-field').val('');
+    $messageField.val('');
   }
 
-  $('#message-send-button').click(sendMessage);
+  $messageSendButton.click(sendMessage);
 
-  $('#message-field').on('keypress', function (event) {
+  $messageField.on('keypress', function (event) {
     var returnKey = 13;
 
     if (event.which === returnKey) {
