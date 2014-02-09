@@ -1,0 +1,23 @@
+script#message-template(type="text/template").
+  <li class="list-group-item">
+    <div class="media">
+      <div class="pull-left">
+        <img class="media-object" src="http://placekitten.com/80/80" alt="avatar">
+      </div>
+
+      <div class="media-body">
+        <h4 class="media-heading"><%= name || 'Guest' %></h4>
+
+        <%= _.escape(message) %>
+      </div>
+    </div>
+  </li>
+
+.modal.fade#profile-modal: .modal-dialog: .modal-content
+  .modal-header
+    button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+    h4.modal-title Profile
+  .modal-body
+    .form-group
+      label(for='name-field') Name
+      input#name-field.form-control(type='text', placeholder='Guest')
