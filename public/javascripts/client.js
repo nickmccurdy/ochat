@@ -4,6 +4,7 @@ $(document).ready(function () {
 
   socket.on('message recieved', function (data) {
     $('#message-list').append(messageTemplate(data));
+    $('#message-list').scrollTop($('#message-list').height());
   });
 
   function sendMessage() {
