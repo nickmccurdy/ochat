@@ -14,11 +14,14 @@ $(document).ready(function () {
   });
 
   function sendMessage() {
-    socket.emit('message sent', {
-      name: $nameField.val(),
-      message: $messageField.val()
-    });
-    $messageField.val('');
+    if($messageField.val()) {
+      socket.emit('message sent', {
+        name: $nameField.val(),
+        message: $messageField.val()
+      });
+
+      $messageField.val('');
+    }
   }
 
   $messageSendButton.click(sendMessage);
