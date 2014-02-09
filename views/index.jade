@@ -33,3 +33,12 @@ block content
         </div>
       </div>
     </li>
+
+  .modal.fade#profile-modal: .modal-dialog: .modal-content
+    .modal-header
+      button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+      h4.modal-title Profile
+    .modal-body
+      .form-group
+        label(for='name-field') Name
+        input#name-field.form-control(type='text', placeholder='Guest')
