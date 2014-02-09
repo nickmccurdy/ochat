@@ -8,7 +8,7 @@ script#message-template(type="text/template").
       <div class="media-body">
         <h4 class="media-heading"><%= name || 'Guest' %></h4>
 
-        <%= _.escape(message) %>
+        <%= marked(_.escape(message)) %>
       </div>
     </div>
   </li>
