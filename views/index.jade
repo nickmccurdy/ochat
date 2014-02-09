@@ -1,7 +1,18 @@
 extends layout
 
 block content
-  ul#message-list.list-group
+  .row
+    .col-sm-9: .panel.panel-default
+      .panel-heading Lounge
+      ul#message-list.list-group
+
+    .col-sm-3: .panel.panel-default
+      .panel-heading Users
+      ul#user-list.list-group
+        li.list-group-item George
+        li.list-group-item John
+        li.list-group-item Paul
+        li.list-group-item Ringo
 
   .input-group
     input#message-field.form-control(type='text', autofocus)
