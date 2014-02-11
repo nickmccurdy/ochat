@@ -33,13 +33,8 @@ app.get('/users', user.list);
 
 var server = http.createServer(app);
 
-var io = require('socket.io').listen(server);
-io.set('log level', 2);
-io.sockets.on('connection', function (socket) {
-  socket.on('message sent', function (message) {
-    io.sockets.emit('message recieved', message);
-  });
-});
+var chatServer = require('./chat_server');
+chatServer(server);
 
 server.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
