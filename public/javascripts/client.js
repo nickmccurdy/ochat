@@ -8,9 +8,15 @@ $(document).ready(function () {
   var $messageField = $('#message-field');
   var $messageSendButton = $('#message-send-button');
 
-  socket.on('message recieved', function (data) {
-    $messageList.append(messageTemplate(data));
+  function showMessage(message) {
+    $messageList.append(messageTemplate(message));
     $messageList.scrollTop($messageList.height());
+  }
+
+  socket.on('message recieved', showMessage);
+
+  socket.on('message history sent', function (data) {
+    data.forEach(showMessage);
   });
 
   function sendMessage() {
