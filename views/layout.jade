@@ -5,6 +5,8 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css')
   body
+    include templates
+
     nav.navbar.navbar-default.navbar-static-top(role='navigation')
       .navbar-brand ochat
       button.btn.btn-primary.navbar-btn(data-toggle='modal', data-target='#profile-modal')
@@ -12,8 +14,6 @@ html
         |  Profile
 
     .container: block content
-
-    include templates
 
     script(src='http://code.jquery.com/jquery-2.1.0.min.js')
     script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js')

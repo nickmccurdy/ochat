@@ -13,6 +13,12 @@ script#message-template(type="text/template").
     </div>
   </li>
 
+mixin user(name)
+  li.list-group-item
+    .media
+      img.media-object.pull-left(src='http://placekitten.com/20/20', alt='avatar')
+      .media-body= name
+
 .modal.fade#profile-modal: .modal-dialog: .modal-content
   .modal-header
     button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;

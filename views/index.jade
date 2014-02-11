@@ -9,10 +9,10 @@ block content
     .col-sm-3: .panel.panel-default
       .panel-heading: strong Users
       ul#user-list.list-group
-        li.list-group-item George
-        li.list-group-item John
-        li.list-group-item Paul
-        li.list-group-item Ringo
+        +user('George')
+        +user('John')
+        +user('Paul')
+        +user('Ringo')
 
   .input-group
     input#message-field.form-control(type='text', autofocus)
