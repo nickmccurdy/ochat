@@ -1,3 +1,8 @@
+// Schema:
+// - name: String
+// - message: String
+var Message = new Meteor.Collection('messages');
+
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
