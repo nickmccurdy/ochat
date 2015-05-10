@@ -12,12 +12,7 @@
       <div class="col-sm-9">
         <div class="panel panel-default">
           <div class="panel-heading"><strong>Lounge</strong></div>
-          <ul id="message-list" class="list-group">
-            <!-- TODO: Scroll when new message recieved. -->
-            {{#each messages}}
-              {{>message}}
-            {{/each}}
-          </ul>
+          {{>messages}}
         </div>
       </div>
       <div class="col-sm-3">
@@ -32,13 +27,7 @@
         </div>
       </div>
     </div>
-    <form id="message-form">
-      <div class="input-group">
-        <input id="message-field" name="message" type="text" autofocus="autofocus" class="form-control"/><span class="input-group-btn">
-          <button id="message-send-button" type="submit" class="btn btn-primary">Send</button>
-        </span>
-      </div>
-    </form>
+    {{>messageForm}}
   </div>
   {{>modal}}
 </body>

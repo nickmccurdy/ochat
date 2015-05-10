@@ -1,0 +1,8 @@
+<template name="messages">
+  <ul id="message-list" class="list-group">
+    <!-- TODO: Scroll when new message recieved. -->
+    {{#each messages}}
+      {{>message}}
+    {{/each}}
+  </ul>
+</template>

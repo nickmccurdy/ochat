@@ -1,4 +1,4 @@
-Template.body.events({
+Template.messageForm.events({
   'submit #message-form': function (event) {
     // TODO: Save this elements so we aren't recreating it on each call.
     var $nameField = $('#name-field');
@@ -13,11 +13,5 @@ Template.body.events({
     }
 
     return false;
-  }
-});
-
-Template.body.helpers({
-  messages: function () {
-    return Messages.find({});
   }
 });
