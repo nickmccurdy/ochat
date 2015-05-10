@@ -1,31 +1,18 @@
-function sendMessage() {
-  // Elements
-  // TODO: Save these elements so we aren't recreating them on each call.
-  var $messageList = $('#message-list');
-  var $nameField = $('#name-field');
-  var $messageField = $('#message-field');
-  var $messageSendButton = $('#message-send-button');
-
-  if($messageField.val()) {
-    Messages.insert({
-      name: $nameField.val() || 'Guest',
-      message: $messageField.val()
-    });
-
-    $messageField.val('');
-  }
-}
-
 Template.body.events({
-  'click #message-send-button': function () {
-    sendMessage();
-  },
-  'keypress #message-field': function (event) {
-    var returnKey = 13;
+  'submit #message-form': function (event) {
+    // TODO: Save this elements so we aren't recreating it on each call.
+    var $nameField = $('#name-field');
 
-    if (event.which === returnKey) {
-      sendMessage();
+    if(event.target.message.value) {
+      Messages.insert({
+        name: $nameField.val() || 'Guest',
+        message: event.target.message.value
+      });
+
+      event.target.message.value = '';
     }
+
+    return false;
   }
 });
 
