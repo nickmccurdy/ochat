@@ -4,8 +4,8 @@ Template.messageForm.events({
     var $nameField = $('#name-field');
 
     if(event.target.message.value) {
-      Messages.insert({
-        name: $nameField.val() || 'Guest',
+      Meteor.call('insertMessage', {
+        name: $nameField.val(),
         message: event.target.message.value
       });
 
