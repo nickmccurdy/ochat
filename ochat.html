@@ -1,3 +1,42 @@
 <head>
   <title>ochat</title>
 </head>
+
+<body>
+  <nav role="navigation" class="navbar navbar-default navbar-static-top">
+    <div class="navbar-brand">ochat</div>
+    <button data-toggle="modal" data-target="#profile-modal" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-user"></span> Profile</button>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong>Lounge</strong></div>
+          <ul id="message-list" class="list-group">
+            <!-- TODO: Scroll when new message recieved. -->
+            {{#each messages}}
+              {{>message}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong>Users</strong></div>
+          <ul id="user-list" class="list-group">
+            {{>user "George"}}
+            {{>user "John"}}
+            {{>user "Paul"}}
+            {{>user "Ringo"}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="input-group">
+      <input id="message-field" type="text" autofocus="autofocus" class="form-control"/><span class="input-group-btn">
+        <button id="message-send-button" type="button" class="btn btn-primary">Send</button>
+      </span>
+    </div>
+  </div>
+  {{>modal}}
+</body>

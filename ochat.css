@@ -1,1 +1,4 @@
-/* CSS declarations go here */
+#message-list, #user-list {
+  height: 500px;
+  overflow: auto;
+}
