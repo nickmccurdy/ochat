@@ -3,12 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "express": "~3.4.8",
-    "jade": "~1.1.5",
-    "socket.io": "~0.9.16",
-    "mongoose": "~3.8.7"
-  }
+    "express": "~4.16.0",
+    "jade": "~1.8.0",
+    "socket.io": "1.0.1",
+    "mongoose": "~4.11.14",
+    "snyk": "^1.62.0"
+  },
+  "snyk": true
 }
