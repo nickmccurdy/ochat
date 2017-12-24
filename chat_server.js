@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('localhost', 'ochat');
+mongoose.connect('mongodb://localhost/ochat', { useMongoClient: true });
 
 var Message = mongoose.model('Message', {
   name: String,
@@ -8,7 +8,6 @@ var Message = mongoose.model('Message', {
 
 module.exports = function (server) {
   var io = require('socket.io').listen(server);
-  io.set('log level', 2);
   io.sockets.on('connection', function (socket) {
     Message.find(function (err, docs) {
       socket.emit('message history sent', docs);
