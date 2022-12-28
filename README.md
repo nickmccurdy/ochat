@@ -1,3 +1,7 @@
+# Deprecated
+
+Use [Slack](https://slack.com/) or [Discord](https://discord.com/)
+
 # ochat
 A simple and open source web chat room.
 
